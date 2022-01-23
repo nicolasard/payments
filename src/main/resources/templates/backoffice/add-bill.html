@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Home</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+<div th:replace="header :: header"></div>
+<div class="px-4 py-5 my-5">
+    <h3 class="text-center" th:unless="${bill.id}">Add a new bill:</h3>
+    <h3 class="text-center" th:if="${bill.id}">Updating bill:</h3>
+    <div class="pb-lg-2 mb-2 container-sm">
+    <div>
+        <form th:action="@{/backoffice/bill}" th:method="post" th:object="${bill}">
+        	<input type="hidden" th:field="*{id}" id="id">
+            <div class="row g-3 align-items-center mb-3 ">
+                <div class="col-auto">
+                    <label for="name" class="col-form-label">Description</label>
+                </div>
+                <div class="col-auto has-validation">
+                    <input type="text" id="name" class="form-control" th:classappend="${#fields.hasErrors('description')} ? is-invalid" aria-describedby="passwordHelpInline" th:field="*{description}" th:value="*{description}">
+                    <div id="validationNameFeedback" class="invalid-feedback" th:if="${#fields.hasErrors('description')}" th:errors="*{description}">
+                    </div>
+                </div>
+            </div>
+            <div class="row g-3 align-items-center mb-3 ">
+                <div class="col-auto">
+                    <label for="name" class="col-form-label">Bill Number</label>
+                </div>
+                <div class="col-auto has-validation">
+                    <input type="text" id="total" class="form-control" th:classappend="${#fields.hasErrors('billNumber')} ? is-invalid" aria-describedby="passwordHelpInline" th:field="*{billNumber}" th:value="*{billNumber}">
+                    <div id="validationTotalFeedback" class="invalid-feedback" th:if="${#fields.hasErrors('billNumber')}" th:errors="*{billNumber}">
+                    </div>
+                </div>
+            </div>
+            <div class="row g-3 align-items-center mb-3 ">
+                <div class="col-auto">
+                    <label for="name" class="col-form-label">Total</label>
+                </div>
+                <div class="col-auto has-validation">
+                    <input type="text" id="total" class="form-control" th:classappend="${#fields.hasErrors('total')} ? is-invalid" aria-describedby="passwordHelpInline" th:field="*{total}" th:value="*{total}">
+                    <div id="validationTotalFeedback" class="invalid-feedback" th:if="${#fields.hasErrors('total')}" th:errors="*{total}">
+                    </div>
+                </div>
+                <div class="col-auto has-validation">
+                    <select id="currency" name="currency" class="form-select">
+		                <option th:each="curr : ${T(ar.nic.springsecurity.entity.CurrencyType).values()}"
+                                th:value="${curr}"
+                                th:text="${curr}">
+                        </option>
+                    </select>
+                    <div id="validationTotalFeedback" class="invalid-feedback" th:if="${#fields.hasErrors('currency')}" th:errors="*{currency}">
+                    </div>
+                </div>
+            </div>
+            <input  class="btn btn-primary" type="submit" value="Add Bill" th:unless="${bill.id}">
+            <input  class="btn btn-primary" type="submit" value="Update Bill" th:if="${bill.id}">
+        </form>
+    </div>
+    </div>
+</div>
+</body>
+</html>
