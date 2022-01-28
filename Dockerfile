@@ -1,3 +1,4 @@
 FROM openjdk:11
-COPY ${JAR_FILE} app.jar
+EXPOSE 9099/tcp
+COPY target/PaymentsApp-0.0.1-SNAPSHOT.jar app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
