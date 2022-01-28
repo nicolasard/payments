@@ -16,7 +16,7 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
-    - name: Set up JDK 11
-      uses: comchangs/action-maven@v0.4-beta
+    - name: Set up MVN
+      run: export PATH=/opt/apache-maven-3.8.4/bin:$PATH
     - name: Build with Maven
       run: mvn -B package --file pom.xml
