@@ -19,9 +19,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private final UserService userService;
 
-    @Autowired
-    private DataSource dataSource;
-
     public SecurityConfig(UserService userService) {
         this.userService = userService;
     }

@@ -11,12 +11,12 @@
 <div th:replace="header :: header"></div>
 <div class="px-4 py-5 my-5 text-center">
     <div class="col-lg-6 mx-auto">
-        <h1 class="display-5 fw-bold">Complete the following form to register</h1>
+        <h1 class="display-5 fw-bold" th:text=#{sing-up.tittle}>Dummy text</h1>
         <form role="form" th:action="@{/sign-up}" th:method="post" th:object="${user}">
             <!--Name-->
             <div class="row g-3 align-items-center mb-3 ">
                 <div class="col-auto">
-                    <label for="inputPassword6" class="col-form-label">Name</label>
+                    <label for="inputPassword6" class="col-form-label" th:text=#{sing-up.name}>Name</label>
                 </div>
                 <div class="col-auto has-validation">
                     <input type="text" id="name" class="form-control" th:classappend="${#fields.hasErrors('name')} ? is-invalid" aria-describedby="passwordHelpInline" th:field="*{name}">
@@ -31,7 +31,7 @@
             <!--SurName-->
             <div class="row g-3 align-items-center mb-3">
                 <div class="col-auto">
-                    <label for="inputPassword6" class="col-form-label">Surname</label>
+                    <label for="inputPassword6" class="col-form-label" th:text=#{sing-up.surname}>Surname</label>
                 </div>
                 <div class="col-auto has-validation">
                     <input type="text" id="surname" name="surname" class="form-control" th:classappend="${#fields.hasErrors('surname')} ? is-invalid" aria-describedby="passwordHelpInline" th:field="*{surname}">
@@ -46,7 +46,7 @@
             <!--email-->
             <div class="row g-3 align-items-center mb-3">
                 <div class="col-auto">
-                    <label for="inputPassword6" class="col-form-label">Email</label>
+                    <label for="inputPassword6" class="col-form-label" th:text=#{sing-up.email}>Email</label>
                 </div>
                 <div class="col-auto has-validation">
                     <input type="text" id="email" name="email" class="form-control" th:classappend="${#fields.hasErrors('email')} ? is-invalid" aria-describedby="passwordHelpInline" th:field="*{email}">
@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <div class="col-auto">
-                    <span id="nameHelpInline" class="form-text">
+                    <span id="nameHelpInline" class="form-text" th:text=#{sing-up.validate_email}>
                       We are going to validate your email.
                     </span>
                 </div>
