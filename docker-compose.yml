@@ -1,6 +1,11 @@
 version: "3.9"
+
+    
 services:
-   payments_dev:
+   dev_app:
       image: "payments:latest"
       ports:
          - "0.0.0.0:9099:9099/tcp"
+      environment:
+         - spring.mail.host=smtp.test
+         - spring.mail.port=43
