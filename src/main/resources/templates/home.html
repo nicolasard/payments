@@ -13,11 +13,11 @@
     <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4" th:text=#{home.welcome}>Welcome to Payments! </h1>
-		<p class="lead">Here you can pay, and check the billing status and payments of your favourite stores.</p >
+		<p class="lead" th:text=#{home.text}>Here you can pay, and check the billing status and payments of your favourite stores.</p >
 		<p class="lead">If your don't have an account register <a th:href="@{/sign-up}">here</a >.</p >
   </div>
+  <p>This site is available in <a th:href="@{?lang=es}">Spanish</a >, <a th:href="@{?lang=de}">German</a > and <a th:href="@{?lang=en}">English</a ></p>
 </div>
-
     </div>
     </body>
 </html>
