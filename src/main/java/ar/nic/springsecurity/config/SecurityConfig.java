@@ -28,6 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers( "/health",
+                		       "/",
                                 "/confirmation/**",
                                 "/shop/**",
                                 "/sign-in/**",
