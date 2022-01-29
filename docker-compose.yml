@@ -1,0 +1,6 @@
+version: "3.9"
+services:
+   payments_dev:
+      image: "payments:latest"
+      ports:
+         - "0.0.0.0:9099:9099/tcp"
