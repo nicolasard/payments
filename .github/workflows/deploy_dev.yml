@@ -22,11 +22,5 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: Build docker image
       run: docker build . -t payments:latest
-    - name: Deploy docker config
-      run: docker config create dev-hosted config/dev-hosted.properties
     - name: Deploy docker service
-      env:
-        SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
-        SMTP_USER: ${{ secrets.SMTP_USER }}
-        SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-      run: docker-compose up -d --build --force-recreate
+      run: docker stack deploy --compose-file docker-compose.yml test

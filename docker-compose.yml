@@ -7,7 +7,7 @@ services:
       ports:
          - "0.0.0.0:9099:9099/tcp"
       configs:
-        - source: dev-config
+        - source: dev-hosted
           target: /application.properties
           uid: '103'
           gid: '103'
