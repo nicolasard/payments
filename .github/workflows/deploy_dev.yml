@@ -23,5 +23,8 @@ jobs:
     - name: Build docker image
       run: docker build . -t payments:latest
     - name: Deploy docker service
-      # so far we have only one docker compose service, but we could have one per environment.
+      env:
+        SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
+        SMTP_USER: ${{ secrets.SMTP_USER }}
+        SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
       run: docker-compose up -d --build --force-recreate
