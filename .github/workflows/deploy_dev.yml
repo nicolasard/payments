@@ -23,7 +23,7 @@ jobs:
     - name: Build docker image
       run: docker build . -t payments:latest
     - name: Deploy docker config
-      run: docker config create dev-hosted dev-hosted.properties
+      run: docker config create dev-hosted config/dev-hosted.properties
     - name: Deploy docker service
       env:
         SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
