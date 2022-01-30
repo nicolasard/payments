@@ -6,8 +6,9 @@ services:
       image: "payments:latest"
       ports:
          - "0.0.0.0:9099:9099/tcp"
-      environment:
-         - spring.mail.host=${SMTP_SERVER}
-         - spring.mail.username=${SMTP_USER}
-         - spring.mail.password=${SMTP_PASSWORD}
-         - spring.mail.port=465
+      configs:
+        - source: dev-config
+          target: /application.properties
+          uid: '103'
+          gid: '103'
+          mode: 0440
