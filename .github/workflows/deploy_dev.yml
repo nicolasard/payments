@@ -18,9 +18,14 @@ jobs:
         cache: maven
     - name: Set up MVN
       run: echo "/opt/apache-maven-3.8.4/bin" >> $GITHUB_PATH
+    - name: Get last version
+      run: . ./getVersion.sh
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Build docker image
       run: docker build . -t payments:latest
+    - name: Tag version
+      run: ./tagRepo.sh
     - name: Deploy docker service
       run: docker stack deploy --compose-file docker-compose.yml test
+
