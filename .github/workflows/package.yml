@@ -17,7 +17,4 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Get last version
-        run: . ./getVersion.sh       
-#    - name: Build with Maven
-#      run: mvn -B package --file pom.xml
-#LAST_VERSION=$(git describe --match "v$MAJOR.[0-9]*" --abbrev=0 HEAD)
+      run: . ./getVersion.sh
