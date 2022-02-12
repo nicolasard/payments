@@ -1,6 +1,6 @@
 #!/bin/bash
 # Script to tag the repo
 
-echo $NEXT_VERSION
+echo Taggin next version $env.NEXT_TAG
 
-git tag -a $NEXT_VERSION -m "Automatic tag to ${NEXT_VERSION}"
+git tag -a $env.NEXT_TAG -m "Automatic tag to ${env.NEXT_TAG}"

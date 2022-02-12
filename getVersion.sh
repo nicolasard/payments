@@ -20,4 +20,4 @@ echo "Next version: $NEXT_TAG"
 
 echo "NEXT_TAG=${NEXT_TAG}" >> $GITHUB_ENV
 
-echo "Use the env. variable NEXT_VERSION to tag and compile the app. LAST_VERSION var is also available"
+echo "Use the env. env.NEXT_TAG variable to get the last version tag."

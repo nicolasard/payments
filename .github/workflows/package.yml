@@ -19,4 +19,4 @@ jobs:
     - name: Get last version
       run: ./getVersion.sh
     - name: Creating tag
-      run: echo ${{env.NEXT_TAG }}
+      run: ./tagRepo.sh
