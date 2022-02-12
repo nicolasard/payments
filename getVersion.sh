@@ -3,6 +3,7 @@
 
 
 echo "Script to get last git version"
+git fetch --all --tags
 MAJOR=0
 echo "Major version: $MAJOR"
 #LAST_VERSION=$(git describe --match "v$MAJOR.[0-9]*" --abbrev=0 HEAD)
