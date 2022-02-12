@@ -18,6 +18,6 @@ NEXT_MINOR_VERSION=$(($LAST_MINOR_VERSION+1))
 NEXT_TAG="v${MAJOR}.${NEXT_MINOR_VERSION}"
 echo "Next version: $NEXT_TAG"
 
-echo "::set-env name=NEXT_TAG::${NEXT_TAG}"
+echo "NEXT_TAG=${NEXT_TAG}" >> $GITHUB_ENV
 
 echo "Use the env. variable NEXT_VERSION to tag and compile the app. LAST_VERSION var is also available"
