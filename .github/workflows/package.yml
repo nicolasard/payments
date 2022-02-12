@@ -1,4 +1,4 @@
-name: Java CI with Maven
+name: Package the app and create new version
 
 on:
   workflow_dispatch:
@@ -16,5 +16,5 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
+    - name: Get last version
+      run: . ./getVersion.sh
