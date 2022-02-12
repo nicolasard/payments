@@ -18,3 +18,5 @@ jobs:
         cache: maven
     - name: Get last version
       run: . ./getVersion.sh
+    - name: Get last version
+      run: echo ${{env.NEXT_TAG }}
