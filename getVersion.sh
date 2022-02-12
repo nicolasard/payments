@@ -3,12 +3,12 @@
 
 
 echo "Script to get last git version"
-git fetch --all --tags --unshallow
+
 MAJOR=0
 echo "Major version: $MAJOR"
 #LAST_VERSION=$(git describe --match "v$MAJOR.[0-9]*" --abbrev=0 HEAD)
 # Note: the || : is to make the command always exit 0 in the exit code
-LAST_VERSION=$(git describe --match "v$MAJOR.[0-9]*" --abbrev=0 --tags || :)
+LAST_VERSION=$(git describe --match "v$MAJOR.[0-9]*" --abbrev=0 --tags --always || :)
 if [ -z "${LAST_VERSION}" ]; then
     echo "No minor version tag found for the current major version, creating the first minor..."
     LAST_VERSION=v${MAJOR}.0
