@@ -3,6 +3,9 @@ name: Create docker image and publish to github packages.
 on:
   workflow_dispatch:
 
+env:
+  IMAGE_NAME: test-name
+
 jobs:
   create_image:
     runs-on: ubuntu-latest
