@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>ar.nic.springsecurity</groupId>
     <artifactId>PaymentsApp</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>v10.1</version>
     <name>payments-app</name>
 
     <properties>

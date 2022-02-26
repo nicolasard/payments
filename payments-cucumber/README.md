@@ -19,3 +19,6 @@ mvn archetype:generate                      \
 ```
 
 Run the tests by running `mvn tests`
+
+The Cucumber report is going to be published in https://reports.cucumber.io/
+
