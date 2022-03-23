@@ -1,5 +1,4 @@
-
-name: Deploy dev environment job.
+name: Deploy dev environment job.(OnPrem)
 
 on:
   workflow_dispatch:
@@ -28,4 +27,3 @@ jobs:
       run: ./tagRepo.sh
     - name: Deploy docker service
       run: docker stack deploy --compose-file docker-compose.yml test
-
